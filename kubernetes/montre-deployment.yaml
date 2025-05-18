@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: montre-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: montre-service
+  template:
+    metadata:
+      labels:
+        app: montre-service
+    spec:
+      containers:
+        - name: montre-service
+          image: tonitonicc/montre-service:latest
+          ports:
+            - containerPort: 8080

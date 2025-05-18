@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bracelet-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bracelet-service
+  template:
+    metadata:
+      labels:
+        app: bracelet-service
+    spec:
+      containers:
+        - name: bracelet-service
+          image: tonitonicc/bracelet-service:latest
+          ports:
+            - containerPort: 8080
